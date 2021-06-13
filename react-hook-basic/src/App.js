@@ -8,6 +8,8 @@ import PostList from "./components/PostList";
 import Pagination from "./components/Pagination";
 import queryString from "query-string";
 import PostFilterForm from "./components/PostFilterForm";
+import Clock from "./components/Clock";
+import BetterClock from "./components/BetterClock";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -92,24 +94,30 @@ function App() {
     });
   }
 
+  const [showClock, setShowClock] = useState(true);
+ 
   return (
     <div className="App">
       <h1>React Hook ToDoList</h1>
+
+      {showClock && <Clock />}
+      <BetterClock />
+      <button onClick={()=> setShowClock(!showClock)}>Hide Clock</button>
 
       {/* <TodoForm onSubmit={handleTodoSubmitForm} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
 
       {/* Bo loc */}
-      <PostFilterForm onSubmit={handleFilterChange}></PostFilterForm>
+      {/* <PostFilterForm onSubmit={handleFilterChange}></PostFilterForm> */}
 
       {/* Cac bai post */}
-      <PostList posts={postList}></PostList>
+      {/* <PostList posts={postList}></PostList> */}
 
       {/* Phan trang */}
-      <Pagination
+      {/* <Pagination
         pagination={pagination}
         onPageChange={handlePageChange}
-      ></Pagination>
+      ></Pagination> */}
     </div>
   );
 }
